@@ -1,0 +1,63 @@
+<?php
+
+/** @var \Magento\Framework\Escaper $escaper*/
+/** @var \Tesche\RangeProducts\ViewModel\Range $viewModel*/
+$viewModel = $block->getData('view_model');
+?>
+<div data-bind="scope: 'range'">
+    <form class="form form-range-price" id="form-range-price" onsubmit="return false" id="form-validate" data-hasrequired="<?= $escaper->escapeHtmlAttr(__('* Required Fields')) ?>">
+        <fieldset class="fieldset info">
+            <legend class="legend"><span>
+                    <?= $escaper->escapeHtml(__('Products by Price Range')) ?>
+                </span></legend><br>
+
+            <div class="field low-range required">
+                <label class="label" for="range"><?= $escaper->escapeHtml(__('Low Range')) ?></label>
+                <div class="control">
+                    <input type="low-range" name="low-range" id="low-range" value="1" data-input="low-range" title="<?= $escaper->escapeHtmlAttr(__('Low-Range')) ?>" required="true" class="input-text" />
+                </div>
+            </div>
+
+            <div class="field high-range required">
+                <label class="label" for="range"><?= $escaper->escapeHtml(__('High Range')) ?></label>
+                <div class="control">
+                    <input type="high-range" name="high-range" id="high-range" value="5" data-input="high-range" title="<?= $escaper->escapeHtmlAttr(__('High-Range')) ?>" required="true" class="input-text" />
+                </div>
+            </div>
+
+            <div class="field sort-range required">
+                <label class="label" for="range"><?= $escaper->escapeHtml(__('Sort')) ?></label>
+                <div class="control">
+                    <select name="sort" id="sort" class="sort">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" data-bind="click: getProducts()" class="action search primary" title="<?= $escaper->escapeHtmlAttr(__('Search')) ?>">
+                        <span>
+                            <?= $escaper->escapeHtml(__('Search')) ?>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script type="text/x-magento-init">
+    {
+    "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "range": {
+                        "component": "Tesche_RangeProducts/js/range"
+                    }
+                }
+            }
+    }
+}
+</script>

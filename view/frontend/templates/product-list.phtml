@@ -1,0 +1,27 @@
+<div id="product-list" data-bind="scope: 'range'">
+    <div data-bind="foreach: message">
+        <span style="color: #e02b27; font-size: 1.5rem;" data-bind="text: error"></span>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Thumbnail</th>
+                <th>Sku</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Product Url</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: products">
+            <tr>
+                <td><img data-bind="attr:{src: thumbnail}" /></td>
+                <td data-bind="text: sku"></td>
+                <td data-bind="text: name"></td>
+                <td data-bind="text: final_price"></td>
+                <td data-bind="text: qty"></td>
+                <td><a data-bind="text: url, attr:{href: thumbnail}" target="_blank"></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
