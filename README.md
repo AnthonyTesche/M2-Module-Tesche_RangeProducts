@@ -16,3 +16,7 @@ php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy
 ```
+
+## How to use
+
+You can find the option on the Side menu from the Customer Account page (www.example.com/customer/account/)
